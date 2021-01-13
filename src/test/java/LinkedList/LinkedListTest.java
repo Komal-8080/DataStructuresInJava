@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class LinkedListTest {
 	
-	
+	//Method to get three numbers when one node is linked with other key
 	@Test
 	public void given3NumbersWhenLinkedShouldPassLinkedListTest() {
 		LinkedList<Integer> myFirstNode = new LinkedList<>(56);
