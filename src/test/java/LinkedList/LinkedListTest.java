@@ -34,7 +34,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 	}
 	
-	// Given 3 numbers when appended should be aAdded to last
+	// Given 3 numbers when appended should be Added to last
 	@Test
 	public void given3NumbersWhenAppendedShouldBeAddedToLast() {
 		LinkedList<Integer> myFirstNode = new LinkedList<>(56);
@@ -61,9 +61,27 @@ public class LinkedListTest {
 		myLinkedList.add(myFirstNode);
 		myLinkedList.append(myThirdNode);
 		myLinkedList.insert(myFirstNode,mySecondNode);
+		myLinkedList.printMyNode();
 		boolean result = myLinkedList.head.equals(myFirstNode) && 
 				 		 myLinkedList.head.getNext().equals(mySecondNode) &&
 				 		 myLinkedList.tail.equals(myThirdNode);
 		Assert.assertTrue(result);
 	}
+	
+	//Given first number when deleted should pass linked list test
+		@Test
+		public void givenFirstNumberWhenDletedShouldPassLinkedListTest() {
+			LinkedList<Integer> myFirstNode = new LinkedList<>(56);
+			LinkedList<Integer> mySecondNode = new LinkedList<>(30);
+			LinkedList<Integer> myThirdNode = new LinkedList<>(70);
+			MyLinkedList myLinkedList = new MyLinkedList();
+			myLinkedList.add(myFirstNode);
+			myLinkedList.append(mySecondNode);
+			myLinkedList.append(myThirdNode);
+			myLinkedList.pop();
+			myLinkedList.printMyNode();
+			boolean result = myLinkedList.head.equals(mySecondNode) && 
+							 myLinkedList.tail.equals(myThirdNode);
+			Assert.assertTrue(result);
+		}
 }
