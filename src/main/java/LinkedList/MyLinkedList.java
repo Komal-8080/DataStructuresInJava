@@ -10,7 +10,7 @@ public class MyLinkedList<K> {
 		this.tail = null;
 	}
 
-	//Add Method
+	// Add Method
 	public void add(INode<K> newNode) {
 		if (this.tail == null) {
 			this.tail = newNode;
@@ -23,35 +23,46 @@ public class MyLinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
-	
-	//Append Method
+
+	// Append Method
 	public void append(INode<K> myNode) {
-		if(this.head == null) {
+		if (this.head == null) {
 			this.head = myNode;
 		}
-		if(this.tail == null) {
-			this.tail =myNode;
-		}else {
+		if (this.tail == null) {
+			this.tail = myNode;
+		} else {
 			this.tail.setNext(myNode);
 			this.tail = myNode;
 		}
 	}
-	
-	//Insert Method
+
+	// Insert Method
 	public void insert(INode<K> myNode, INode<K> newNode) {
 		INode<K> tempNode = myNode.getNext();
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
-	
-	//Pop Method
+
+	// Pop First Element From The List
 	public INode<K> pop() {
 		INode<K> tempNode = this.head;
 		this.head = head.getNext();
 		return tempNode;
 	}
 
-	//Print Node Method
+	// Pop Last Element From The List
+	public INode<K> popLast() {
+		INode<K> tempNode = head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		return tempNode;
+	}
+
+	// Print Node Method
 	public void printMyNode() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");
 		INode<K> tempNode = head;
